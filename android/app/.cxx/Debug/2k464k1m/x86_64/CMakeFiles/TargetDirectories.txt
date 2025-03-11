@@ -1,0 +1,2 @@
+C:/flutterDev/projects/ai_chat_room/android/app/.cxx/Debug/2k464k1m/x86_64/CMakeFiles/edit_cache.dir
+C:/flutterDev/projects/ai_chat_room/android/app/.cxx/Debug/2k464k1m/x86_64/CMakeFiles/rebuild_cache.dir
