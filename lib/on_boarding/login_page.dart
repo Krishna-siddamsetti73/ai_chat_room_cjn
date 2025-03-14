@@ -1,9 +1,12 @@
+import 'package:ai_chat_room/data/remote/api_helper.dart';
+import 'package:ai_chat_room/data/remote/urls.dart';
 import 'package:ai_chat_room/screens/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+  ApiHelper apiHelper;
+  LoginPage({required this.apiHelper});
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +57,8 @@ class LoginPage extends StatelessWidget {
 
                   // Login Button
                 OutlinedButton(onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
+                  apiHelper.getApi(url: AppUrls.BASE_URL_DEV);
+                  //Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
                 }, child: Text("Login",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),)
                 ],
               ),

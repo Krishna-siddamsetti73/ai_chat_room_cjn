@@ -1,4 +1,6 @@
+import 'package:ai_chat_room/data/remote/api_helper.dart';
 import 'package:ai_chat_room/on_boarding/login_page.dart';
+import 'package:ai_chat_room/on_boarding/sign_up_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +19,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: LoginPage()
+      home:SignUpPage()
+      //LoginPage(apiHelper: ApiHelper(),)
     );
   }
 }

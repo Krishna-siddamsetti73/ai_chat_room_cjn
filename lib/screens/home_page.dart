@@ -1,5 +1,8 @@
 import 'package:ai_chat_room/screens/ai_chat_room_page.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:images_picker/images_picker.dart';
+
 import 'package:lottie/lottie.dart';
 
 class HomePage extends StatefulWidget {
@@ -28,7 +31,10 @@ class _HomePageState extends State<HomePage> {
                 Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      OutlinedButton(onPressed: (){}, child: Text("Upload from gallary",style: TextStyle(color: Colors.white,fontSize: 16),)),
+                      OutlinedButton(onPressed: () async {
+                       // getImage();
+                         XFile? pickedFile = await ImagePicker().pickImage(source: ImageSource.gallery);
+                      }, child: Text("Upload from gallary",style: TextStyle(color: Colors.white,fontSize: 16),)),
                       SizedBox(width: 8,),
                       OutlinedButton(onPressed: (){}, child: Text("Record Video",style: TextStyle(color: Colors.white,fontSize: 16),)),
                     ]),
@@ -78,6 +84,12 @@ class _HomePageState extends State<HomePage> {
           ),
         ]
       ),
+    );
+  }
+  Future getImage() async {
+    List<Media>? res = await ImagesPicker.pick(
+      count: 1,
+      pickType: PickType.video,
     );
   }
 }
