@@ -25,14 +25,11 @@ class LoginPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   // Lottie Animation
                   Lottie.asset("assets/animation/hello_ai_anima.json",
-                      height: 200),
-
-                  const SizedBox(height: 20),
-
+                      height: 400,width: 400),
                   // Input Field
                   TextField(
                     decoration: InputDecoration(
@@ -58,7 +55,7 @@ class LoginPage extends StatelessWidget {
                   // Login Button
                 OutlinedButton(onPressed: (){
                   apiHelper.getApi(url: AppUrls.BASE_URL_DEV);
-                  //Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
                 }, child: Text("Login",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),)
                 ],
               ),

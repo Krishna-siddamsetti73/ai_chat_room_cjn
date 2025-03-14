@@ -1,3 +1,4 @@
+import 'package:ai_chat_room/ui_helper/ui_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -5,7 +6,7 @@ class AiChatRoomPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
+
     double mHeight = MediaQuery.of(context).size.height;
     double mWidth = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -34,7 +35,26 @@ class AiChatRoomPage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(200),
               )
           ),
-          Lottie.asset("assets/animation/interview_bot_ai_3.json",height: 350,width: 350)
+          Stack(
+            children: [
+              Positioned(
+                child:  Container(
+                height: 100,
+                width: 225,
+                  //color: Colors.transparent,
+                child: Stack(
+                  children:[
+                    Positioned.fill(child: Image.asset("assets/images/message_image.png",fit: BoxFit.fill,),),
+                    Center(
+                    child: Text("Hi, I am Interview Bot",style: TextStyle(fontSize: 14,color: Colors.white),),
+                  ),
+                  ]
+                ),
+              ),),
+              sizedBoxHeight(mHeight: 22),
+              Lottie.asset("assets/animation/interview_bot_ai_3.json",height: 350,width: 350)]
+          ),
+          //Lottie.asset("assets/animation/interview_bot_ai_3.json",height: 350,width: 350)
         ],
       );
     }else{
@@ -50,10 +70,29 @@ class AiChatRoomPage extends StatelessWidget {
               ),
           ),
           SizedBox(width: 21,),
-          Lottie.asset("assets/animation/interview_bot_ai_3.json",height: 400,width: 400),
+          Stack(
+              children: [
+                Positioned(
+                  child:  Container(
+                    height: 150,
+                    width: 255,
+                    color: Colors.transparent,
+                    child: Stack(
+                        children:[
+                          Positioned.fill(
+                            child: Image.asset("assets/images/message_image.png",fit: BoxFit.fill,),),
+                          Center(
+                            child: Text("Hi, I am Interview Bot",style: TextStyle(fontSize: 14,color: Colors.white),),
+                          ),
+                        ]
+                    ),
+                  ),),
+                sizedBoxHeight(mHeight: 22),
+                Lottie.asset("assets/animation/interview_bot_ai_3.json",height: 350,width: 350)]
+          ),
         ],
       );
     }
   }
-  
+
 }
