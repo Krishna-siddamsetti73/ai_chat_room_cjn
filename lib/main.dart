@@ -26,9 +26,9 @@ class MyApp extends StatelessWidget {
         ),
         home:
         //SignUpPage()
-        HomePage()
+        //HomePage()
         // AiChatRoomPage()
-        //LoginPage(appRepository : AppRepository(apiHelper:ApiHelper()),)
+        LoginPage(appRepository : AppRepository(apiHelper:ApiHelper()),)
     );
   }
 }
