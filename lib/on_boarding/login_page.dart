@@ -60,25 +60,30 @@ class LoginPage extends StatelessWidget {
 
                   const SizedBox(height: 25),
 
-                  // Login Button
-                BlocListener<LoginBloc, LoginUserState>(
-                  listener: (context, state) async {
-                    if (state is LoginSuccessState)  {
-                      String id = idController.text;
-                      appRepository.loginUser(bodyParams: {
-                        "candidate_id": id
-                      });
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUpPage()));
-                    }
-                    if(state is LoginErrorState){
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Failed to login"),));
-                    }
-                  },
-                  child: OutlinedButton(onPressed: (){
-                  //apiHelper.getApi(url: AppUrls.BASE_URL_DEV);
-                  //Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUpPage()));
-                }, child: Text("Login",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),),
-)
+//                   // Login Button
+//                 BlocListener<LoginBloc, LoginUserState>(
+//                   listener: (context, state) async {
+//                     if (state is LoginSuccessState)  {
+//                       String id = idController.text;
+//                       appRepository.loginUser(bodyParams: {
+//                         "candidate_id": id
+//                       });
+//                       Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUpPage()));
+//                     }
+//                     if(state is LoginErrorState){
+//                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Failed to login"),));
+//                     }
+//                   },
+//                   child:
+//                   OutlinedButton(onPressed: (){
+//                   //apiHelper.getApi(url: AppUrls.BASE_URL_DEV);
+//                   //Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUpPage()));
+//                 }, child: Text("Login",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),),
+// )
+                   OutlinedButton(onPressed: (){
+                   //apiHelper.getApi(url: AppUrls.BASE_URL_DEV);
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
+                 }, child: Text("Login",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),),
                 ],
               ),
             ),
