@@ -80,10 +80,34 @@ class LoginPage extends StatelessWidget {
 //                   //Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUpPage()));
 //                 }, child: Text("Login",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),),
 // )
-                   OutlinedButton(onPressed: (){
-                   //apiHelper.getApi(url: AppUrls.BASE_URL_DEV);
-                   Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
-                 }, child: Text("Login",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),),
+                  OutlinedButton(
+  onPressed: () {
+    String id = idController.text;
+    if (id.isNotEmpty) {
+      BlocProvider.of<LoginBloc>(context).add(LoginUser(mParams: {"candidate_id": id}));
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Please enter Candidate ID")),
+      );
+    }
+  },
+  child: Text("Login", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+),
+
+BlocListener<LoginBloc, LoginUserState>(
+  listener: (context, state) {
+    if (state is LoginSuccessState) {
+      Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
+    }
+    if (state is LoginErrorState) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(state.errorMsg)),
+      );
+    }
+  },
+  child: Container(), // Needed for BlocListener
+),
+
                 ],
               ),
             ),
