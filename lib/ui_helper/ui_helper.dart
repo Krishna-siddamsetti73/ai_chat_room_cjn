@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
-TextField textField({required var label,required var name,dynamic controller,Icon? icon}){
+TextField textField({required var label,required String hintText,dynamic controller,Icon? icon}){
   return TextField(
     controller: controller,
     decoration: InputDecoration(
       prefixIcon: icon,
       border: OutlineInputBorder(),
       labelText: label,
-      hintText: name,
+      hintText: hintText,
       focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(20),
       ),
       enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(20),
       ),
     ),
   );

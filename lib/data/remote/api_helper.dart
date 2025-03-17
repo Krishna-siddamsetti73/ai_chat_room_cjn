@@ -8,6 +8,7 @@ class ApiHelper {
     required String url,
     bool isHeaderRequired = true,
     Map<String, String>? headers,
+    Map<String, dynamic>? bodyParams,
   }) async {
     var uri = Uri.parse(url);
 
